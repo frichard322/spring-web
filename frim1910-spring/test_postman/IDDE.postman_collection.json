@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "e3553e6d-78f3-4ff6-b089-71b21fbe946a",
+		"name": "IDDE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Car advertisements",
+			"item": [
+				{
+					"name": "Get list of car advertisements",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/cars/8f20b989-224c-4b87-93de-7661c1ce004a/advertisements",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cars",
+								"8f20b989-224c-4b87-93de-7661c1ce004a",
+								"advertisements"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a car advertisement",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Elado dudu\",\r\n    \"description\": \"Ocso\",\r\n    \"price\": 1900.5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/cars/8f20b989-224c-4b87-93de-7661c1ce004a/advertisements/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cars",
+								"8f20b989-224c-4b87-93de-7661c1ce004a",
+								"advertisements",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a car advertisement by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/cars/bdbdd80a-2727-4f4f-be16-9bfb85506236/advertisements/1458d928-e8c7-4eb2-b44a-16a9cab19afc",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cars",
+								"bdbdd80a-2727-4f4f-be16-9bfb85506236",
+								"advertisements",
+								"1458d928-e8c7-4eb2-b44a-16a9cab19afc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cars",
+			"item": [
+				{
+					"name": "Get list of cars",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/cars",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cars"
+							],
+							"query": [
+								{
+									"key": "brand",
+									"value": "BMW",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get car by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/cars/9a2e18d6-e519-4d79-89ed-04f68bc1feca",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cars",
+								"9a2e18d6-e519-4d79-89ed-04f68bc1feca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a car",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"brand\": \"BMW\",\r\n    \"model\": \"5S\",\r\n    \"type\": \"sedan\",\r\n    \"year\": 1981,\r\n    \"engine\": 5.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/cars",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a car by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/cars/9a2e18d6-e519-4d79-89ed-04f68bc1feca",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cars",
+								"9a2e18d6-e519-4d79-89ed-04f68bc1feca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a car by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"brand\": \"asd\",\r\n    \"model\": \"asd\",\r\n    \"type\": \"asd\",\r\n    \"year\": 0,\r\n    \"engine\": 0.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/cars/1a47b2d0-2cec-4cff-9d68-c0c5cc2f7b68",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cars",
+								"1a47b2d0-2cec-4cff-9d68-c0c5cc2f7b68"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

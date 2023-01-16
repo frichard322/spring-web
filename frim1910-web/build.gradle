@@ -1,0 +1,51 @@
+plugins {
+    id 'war'
+    id 'maven-publish'
+}
+
+dependencies {
+    implementation project(":frim1910-backend")
+
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.28'
+    runtimeOnly group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+
+    compileOnly group: 'jakarta.servlet', name: 'jakarta.servlet-api', version: '5.0.0'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.10.0'
+}
+
+def deploymentName = 'frim1910'
+
+def tomcatHome = System.getenv('CATALINA_HOME')
+logger.quiet("Tomcat home detected as '${tomcatHome}'")
+
+task deploy(type: Copy, dependsOn: 'war') {
+    doFirst {
+        if (!tomcatHome) {
+            throw new InvalidUserDataException("Tomcat home (CATALINA_HOME) not set")
+        }
+    }
+    from war.archiveFile
+    rename war.archiveFileName.get(), "${deploymentName}.war"
+    into "${tomcatHome}/webapps"
+}
+
+task undeploy(type: Delete) {
+    doFirst {
+        if (!tomcatHome) {
+            throw new InvalidUserDataException("Tomcat home (CATALINA_HOME) not set")
+        }
+    }
+    delete "${tomcatHome}/webapps/${deploymentName}.war"
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = group
+            artifactId = 'frim1910-web'
+            version = version
+
+            from components.java
+        }
+    }
+}

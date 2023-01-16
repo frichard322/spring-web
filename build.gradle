@@ -1,0 +1,17 @@
+allprojects {
+	group = 'edu.bbte.idde.frim1910'
+	version = '1.0.0-SNAPSHOT'
+}
+
+subprojects {
+	apply plugin: 'java'
+
+    apply from: "$rootDir/lint.gradle"
+
+	sourceCompatibility = 16
+	targetCompatibility = 16
+
+	repositories {
+		mavenCentral()
+	}
+}

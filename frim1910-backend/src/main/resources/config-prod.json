@@ -1,0 +1,8 @@
+{
+    "daoFactoryImplementation" : "jdbc",
+    "jdbcClassName" : "org.postgresql.Driver",
+    "jdbcURL" : "jdbc:postgresql://localhost:5432/idde_lab",
+    "username": "postgres",
+    "password": "password",
+    "poolSize": 10
+}

@@ -1,0 +1,15 @@
+spring:
+    sql:
+        init:
+            platform: postgres
+    datasource:
+        url: jdbc:postgresql://localhost:5432/idde_lab
+        username: postgres
+        password: password
+        driver-class-name: org.postgresql.Driver
+        type: com.zaxxer.hikari.HikariDataSource
+        hikari:
+            maximum-pool-size: 10
+    autoconfigure:
+            exclude:
+                - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration

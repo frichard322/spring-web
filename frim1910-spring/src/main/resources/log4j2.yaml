@@ -1,0 +1,35 @@
+Configuration:
+    status: error
+
+    Appenders:
+        Console:
+            name: CONSOLE_LOGGER
+            target: SYSTEM_OUT
+            PatternLayout:
+                pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+
+        RollingFile:
+            -   name: FILE_LOGGER
+                fileName: logs/fileout.log
+                filePattern: "logs/archived/fileout-%d{yyyy-MM-dd}.%i.log"
+                PatternLayout:
+                    pattern: "%d{HH:mm:ss} %-5level %logger{36} - %msg%n"
+                Policies:
+                    TimeBasedTriggeringPolicy:
+                        interval: 7
+                        modulate: true
+                    SizeBasedTriggeringPolicy:
+                        size: 10 MB
+
+    Loggers:
+        Root:
+            level: info
+            AppenderRef:
+                -   ref: CONSOLE_LOGGER
+                    level: info
+        Logger:
+            -   name: edu.bbte.idde.frim1910
+                level: debug
+                AppenderRef:
+                    -   ref: FILE_LOGGER
+                        level: debug

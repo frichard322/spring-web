@@ -1,0 +1,25 @@
+plugins {
+    id 'application'
+    id 'maven-publish'
+}
+
+dependencies {
+	implementation project(":frim1910-backend")
+
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.28'
+    runtimeOnly group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = group
+            artifactId = 'frim1910-desktop'
+            version = version
+
+            from components.java
+        }
+    }
+}
+
+mainClassName = 'edu.bbte.idde.frim1910.desktop.Main'

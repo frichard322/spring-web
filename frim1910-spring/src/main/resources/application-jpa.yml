@@ -1,0 +1,21 @@
+spring:
+    sql:
+        init:
+            platform: postgres
+    jpa:
+        database: POSTGRESQL
+        show-sql: true
+        generate-ddl: true
+        hibernate:
+            ddl-auto: create-drop
+        properties:
+            hibernate:
+                jdbc:
+                    lob:
+                        non_contextual_creation: true
+    datasource:
+        url: jdbc:postgresql://localhost:5432/idde_lab
+        username: postgres
+        password: password
+        driver-class-name: org.postgresql.Driver
+
